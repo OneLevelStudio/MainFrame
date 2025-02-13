@@ -6,6 +6,8 @@ import gradio as gr
 import uvicorn
 import os
 
+os.environ["OS_ENV_FASTAPI_WRAPPER"] = "TRUE"
+
 fapi = FAPI_FastAPI()
 fapi.add_middleware(FAPI_CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
@@ -18,13 +20,13 @@ def endpoint_root():
     return FAPI_FileResponse('app/root/index.html')
 
 # ENDPOINT: /gradio
-gradio_app123 = gr.Interface(lambda aaaaa: "Hello, " + aaaaa + "!", "textbox", "textbox")
+from app1.app1 import demo as gradio_app123
 fapi = gr.mount_gradio_app(fapi, gradio_app123, path="/gradio")
 
 # ====================================================================================================
 
 uvicorn.run(
     fapi, 
-    host = "127.0.0.1" if not os.getenv("OS_ENV_DOCKER") else "0.0.0.0",
+    host = "127.0.0.1" if not os.getenv("OS_ENV_DOCKER_WRAPPER") else "0.0.0.0",
     port = 80,
 )
