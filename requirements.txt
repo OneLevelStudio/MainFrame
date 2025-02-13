@@ -1,0 +1,13 @@
+# API + APP
+requests
+fastapi
+uvicorn
+gradio
+
+# ipykernel
+# ipywidgets
+
+# # VIOCR
+# onnxruntime
+# opencv-python-headless
+# pillow
