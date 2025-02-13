@@ -3,4 +3,3 @@ services:
     build: .
     ports:
       - "80:80"
-      - "6969:6969"
