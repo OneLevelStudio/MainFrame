@@ -6,6 +6,7 @@ requests
 fastapi
 uvicorn
 gradio
+gradio_client
 
 # VIOCR
 onnxruntime
