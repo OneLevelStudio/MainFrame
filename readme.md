@@ -11,3 +11,8 @@ Stop all CONs                   docker stop $(docker ps -a -q)
 Remove all CONs                 docker rm $(docker ps -a -q)
 Remove all IMGs                 docker rmi $(docker images -q)
 Remove everything               docker system prune -a -f
+
+
+docker-compose up -d --build
+
+docker-compose down

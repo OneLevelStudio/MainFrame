@@ -13,15 +13,19 @@ fapi.add_middleware(FAPI_CORSMiddleware, allow_origins=["*"], allow_credentials=
 
 # ====================================================================================================
 
-# ENDPOINT: /root
+# ENDPOINT: /
 fapi.mount("/root_static", FAPI_StaticFiles(directory="app/root/root_static"))
 @fapi.get("/")
 def endpoint_root():
     return FAPI_FileResponse('app/root/index.html')
 
-# ENDPOINT: /gradio
-from app1.app1 import demo as gradio_app123
-fapi = gr.mount_gradio_app(fapi, gradio_app123, path="/gradio")
+# ENDPOINT: /app1
+from app1.app1 import demo as app1_demo
+fapi = gr.mount_gradio_app(fapi, app1_demo, path="/app1")
+
+# ENDPOINT: /app2
+from app2.app2 import demo as app2_demo
+fapi = gr.mount_gradio_app(fapi, app2_demo, path="/app2")
 
 # ====================================================================================================
 
