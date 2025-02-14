@@ -1,5 +1,5 @@
-# ipykernel
-# ipywidgets
+ipykernel
+ipywidgets
 
 # API + APP
 requests
